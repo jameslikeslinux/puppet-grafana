@@ -53,8 +53,8 @@ Puppet::Type.newtype(:grafana_dashboard) do
     desc 'The username for the Grafana server (optional)'
   end
 
-  newparam(:grafana_password) do
-    desc 'The password for the Grafana server (optional)'
+  newparam(:grafana_token) do
+    desc 'The API token for the Grafana server (optional)'
   end
 
   newparam(:grafana_api_path) do

@@ -60,6 +60,7 @@ class Puppet::Provider::Grafana < Puppet::Provider
 
     request.content_type = 'application/json'
     request.basic_auth resource[:grafana_user], resource[:grafana_password] if resource[:grafana_user] && resource[:grafana_password]
+    request['Authorization'] = "Bearer #{resource[:grafana_token]}" if resource[:grafana_token]
 
     Net::HTTP.start(grafana_host, grafana_port,
                     use_ssl: grafana_scheme == 'https',
